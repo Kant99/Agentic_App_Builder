@@ -1,15 +1,17 @@
-from langchain_groq import ChatGroq
 from dotenv import load_dotenv
-from states import *
-from prompts.planner import planner_prompt
-
-
+from langgraph.constants import END
+from langgraph.graph import StateGraph
+from agents.planner import planner_agent
 
 load_dotenv()
-llm=ChatGroq(model="openai/gpt-oss-120b")
-user_prompt="Create a calculator web app"
-res=llm.with_structured_output(Plan).invoke(planner_prompt(user_prompt))
-user_prompt="Build a calculator web app" 
-print(res)
+
+user_input="Build a calculator web app" 
 
 
+graph=StateGraph(dict)
+graph.add_node("planner",planner_agent)
+graph.set_entry_point("planner")
+
+agent=graph.compile()
+result=agent.invoke({"user_prompt":user_input})
+print(result)
