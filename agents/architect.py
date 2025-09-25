@@ -1,6 +1,5 @@
-def architect(plan: dict):
-    return {
-        "index.html": "<!-- HTML skeleton -->",
-        "style.css": "/* CSS skeleton */",
-        "index.js": "// JS skeleton"
-    }
+from states import Task_Plan,Plan
+from langchain_groq import ChatGroq
+
+
+from prompts.prompt import architect_prompt
