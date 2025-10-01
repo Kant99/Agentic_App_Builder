@@ -23,3 +23,14 @@ RULES:
 Project Plan:
 {plan}"""
      return ARCHITECT_PROMPT
+
+def coder_prompt(task_description:str)->str:
+    CODER_PROMPT=f"""
+    You are a coding agent. Given an task_description, write the full, working code solution.  
+- Provide complete code (no snippets, no placeholders).  
+- Ensure it runs without errors.  
+- Follow clean coding best practices.  
+Output only the code. Here is the task_description {task_description}
+    """
+
+    return CODER_PROMPT

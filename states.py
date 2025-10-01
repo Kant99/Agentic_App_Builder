@@ -23,7 +23,6 @@ class Plan(BaseModel):
         description="A list of key functionalities, capabilities, or highlights of the project."
     )
         files: list[File] = Field(
-        default_factory=dict,
         description="A mapping of filenames to their descriptions or contents (e.g., source files)."
     )
 
