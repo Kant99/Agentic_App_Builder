@@ -24,13 +24,16 @@ Project Plan:
 {plan}"""
      return ARCHITECT_PROMPT
 
-def coder_prompt(task_description:str)->str:
+def coder_prompt()->str:
     CODER_PROMPT=f"""
-    You are a coding agent. Given an task_description, write the full, working code solution.  
-- Provide complete code (no snippets, no placeholders).  
-- Ensure it runs without errors.  
-- Follow clean coding best practices.  
-Output only the code. Here is the task_description {task_description}
-    """
+    You are the CODER agent.
+You are implementing a specific engineering task.
+You have access to tools to read and write files.
 
+Always:
+- Review all existing files to maintain compatibility.
+- Implement the FULL file content, integrating with other modules.
+- Maintain consistent naming of variables, functions, and imports.
+- When a module is imported from another file, ensure it exists and is implemented as described.
+    """
     return CODER_PROMPT
