@@ -5,9 +5,7 @@ from langgraph.graph import StateGraph
 
 from agents.planner import planner_agent, architect_agent, coder_agent
 
-
-
-user_input="Build a calculator web app" 
+user_input="Build a todo list web app using HTML CSS and Javascript only "
 
 set_debug(True)
 set_verbose(True)
