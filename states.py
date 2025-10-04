@@ -1,4 +1,6 @@
 # Contain all the classes and states of langgraph
+from typing import Optional
+
 from pydantic import BaseModel, ConfigDict, Field
 
 class File(BaseModel):
@@ -39,4 +41,7 @@ class Task_Plan(BaseModel):
         description="A list of steps to be taken to implement the task"
     )
     model_config=ConfigDict(extra="allow")
-    
+
+class CoderState(BaseModel):
+    task_plan: Task_Plan = Field(description="The plan for the task to be implemented")
+    current_step_idx: int = Field(0, description="The index of the current step in the implementation steps")
